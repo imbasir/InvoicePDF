@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Invoice</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  
+  </head>
+  <body>
+    <section>
+    <div class="container" id="invoice">
+      <h2 style="text-align: center;">Jo'Vince INVOICE: 001</h2>
+      <p>8 KEFIELD STREET, </br>NORTH TOOWOOMBA 4350</p>
+      <p>ABN - 21453824662</p>
+      <p>Ph. 0433930725 - JOV</p>
+      <p>0420982425 - VINCE</p>
+    </br>
+      <div class="main">
+      <h3>House Cleaning Service</h3>
+      <div class="time-container">
+      <strong>Date: <strong id="date"></strong>  </strong>
+      </div> 
+      <p style="text-align: end; margin-right: 40px;">$<span id="price"></span></p>  
+      <br>  
+      <p style="text-align: end; margin-right: 40px;">Grand Total: $<strong id="totalPrice"></strong></p>
+      </div>
+
+
+      <div class="footer-container">
+      <p>Joveleen Bautista</p>
+      <p>COMMONWEALTH BANK</p>
+      <p>BSB: 064 001</p>
+      <p>Account Number: <strong>1206 1169</strong></p>
+
+      <div style="margin-top: 20px;">
+      <b>Thanks and Regards</b>
+      <p>Joveleen & Vincent</p>
+      </div>
+      </div>
+    </div>
+    </section>
+
+
+    <div class="btn-container">
+    <!--Buttons -->
+    
+   
+    <input type="text"  id="subPrice" value="">
+    <input type="text"  id="totalAmount" value="">
+      <br>
+    <button onclick="myPrice()">Price</button>
+   
+    <button onclick="generatePDF()">Generate</button>
+    
+    </div>
+
+    
+
+    <script>
+    //Date
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    let date = new Date();
+    let dateAndTime = date.toLocaleDateString("en-US", options);
+    document.getElementById("date").innerHTML = dateAndTime;
+
+    </script>
+    
+  </body>
+</html>
